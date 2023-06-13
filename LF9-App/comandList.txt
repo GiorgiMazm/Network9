@@ -1,0 +1,28 @@
+GET:
+
+
+city:
+1. city/hamburg    - ip address and department name
+2. city/lubeck     - ip address and department name
+3. city/munich     - ip address and department name
+4. city/berlin     - ip address and department name
+
+department:
+
+1. department/it    - ip address
+2.
+3.
+4.
+5.
+6.
+
+
+POST: new department with ip
+
+
+
+DB:
+Department table:
+name: it
+location: hamburg
+ip: 2001:db:A:20::2
