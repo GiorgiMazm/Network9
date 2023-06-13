@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Finance",
+    "location": "Hamburg",
+    "endDevices": [
+      {
+        "name": "PC1",
+        "ip": "2001:db:A:10::2"
+      },
+      {
+        "name": "PC2",
+        "ip": "2001:db:A:10::2"
+      },
+      {
+        "name": "PC3",
+        "ip": "2001:db:A:10::2"
+      }
+    ]
+  },
+  {
+    "name": "Verkauf",
+    "location": "Berlin",
+    "endDevices": [
+      {
+        "name": "PC1",
+        "ip": "2001:db:A:10::2"
+      },
+      {
+        "name": "PC2",
+        "ip": "2001:db:A:10::2"
+      },
+      {
+        "name": "PC3",
+        "ip": "2001:db:A:10::2"
+      }
+    ]
+  }
+]
