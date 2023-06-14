@@ -53,7 +53,10 @@ const { createDepartment } = useDepartment();
               class="rounded-xl bg-black py-4 px-6 hover:bg-red-600 mx-2"
               v-if="newDepartment"
               @click="
-                createDepartment({ name: department, location: city });
+                createDepartment({
+                  name: department.toLowerCase(),
+                  location: city.toLowerCase(),
+                });
                 toggleNewForm();
               "
             >

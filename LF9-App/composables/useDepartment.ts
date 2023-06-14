@@ -27,23 +27,23 @@ export default () => {
   }
 
   async function createDepartment(department: object) {
-    // const { error, data } = await useFetch(
-    //   `http://localhost:8080/new/department`,
-    //   {
-    //     method: "post",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(department),
-    //   }
-    // );
-    // if (error.value) {
-    //   throw createError({
-    //     statusCode: 404,
-    //     statusMessage:
-    //       "Something went wrong with fetching data, try again later",
-    //   });
-    // }
+    const { error, data } = await useFetch(
+      `http://localhost:8080/create/department`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(department),
+      }
+    );
+    if (error.value) {
+      throw createError({
+        statusCode: 404,
+        statusMessage:
+          "Something went wrong with fetching data, try again later",
+      });
+    }
 
     console.log(department);
   }

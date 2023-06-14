@@ -10,11 +10,15 @@ const props = defineProps({
 });
 
 const inputValue = ref("");
-let selectArray = [];
+let selectArray: string | string[];
 const cities = useCity();
 const departments = useDepartment();
 if (props.type === "city") {
-  selectArray = cities.city;
+  selectArray = await cities.getCities();
+  selectArray = selectArray
+    .slice(1, -1)
+    .split(",")
+    .map((item) => item.trim());
 } else if (props.type === "department") {
   selectArray = departments.department;
 }

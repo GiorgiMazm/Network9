@@ -1,4 +1,3 @@
-import city from "../data/city.json";
 export default () => {
   async function getDataByCity(city: string) {
     // const { error, data } = await useFetch(
@@ -24,7 +23,8 @@ export default () => {
           "Something went wrong with fetching data, try again later",
       });
     }
-    return data.value;
+    console.log(typeof data.value);
+    return data.value as string;
   }
-  return { city, getDataByCity, getCities };
+  return { getDataByCity, getCities };
 };
