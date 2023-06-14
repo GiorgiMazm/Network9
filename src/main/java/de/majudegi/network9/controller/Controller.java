@@ -5,6 +5,7 @@ import de.majudegi.models.Department;
 import de.majudegi.models.Device;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -30,10 +31,18 @@ public class Controller {
     }
 
     @GetMapping(path = "/cities")
-    public String showCities() {
+    public List<java.lang.String> showCities() {
         String defaultResponse = "No cities available";
         List<String> result = dbHandler.getCities();
-        return (result == null ? defaultResponse : result.toString());
+        return (result == null ? Collections.singletonList(defaultResponse) : result);
+    }
+
+    @GetMapping(path = "/departments")
+    public
+    List<String> showDepartments() {
+        String defaultResponse = "No departments available";
+        List<String> result = dbHandler.getDepartments();
+        return (result == null ? Collections.singletonList(defaultResponse) : result);
     }
 
     @PostMapping(path = "/create/department")

@@ -23,8 +23,7 @@ export default () => {
           "Something went wrong with fetching data, try again later",
       });
     }
-    console.log(typeof data.value);
-    return data.value as string;
+    return data.value as string[];
   }
   return { getDataByCity, getCities };
 };

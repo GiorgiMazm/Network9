@@ -1,4 +1,3 @@
-import department from "../data/department.json";
 export default () => {
   async function getDataByDepartment(department: string) {
     const { error, data } = await useFetch(
@@ -23,11 +22,11 @@ export default () => {
           "Something went wrong with fetching data, try again later",
       });
     }
-    return data.value;
+    return data.value as string[];
   }
 
   async function createDepartment(department: object) {
-    const { error, data } = await useFetch(
+    const { error } = await useFetch(
       `http://localhost:8080/create/department`,
       {
         method: "post",
@@ -48,5 +47,5 @@ export default () => {
     console.log(department);
   }
 
-  return { department, getDataByDepartment, getDepartments, createDepartment };
+  return { getDataByDepartment, getDepartments, createDepartment };
 };

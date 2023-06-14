@@ -77,6 +77,21 @@ public class DatabaseHandler {
         return result;
     }
 
+	public List<String> getDepartments() {
+		List<String> result = new ArrayList<>();
+		try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM department");) {
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				result.add(rs.getString("name"));
+			}
+			LOGGER.info("List of all Departments");
+		} catch (Exception e) {
+			LOGGER.error("(getDevices) Couldn't get data from database: " + e.getMessage());
+		}
+		return result;
+	}
+
     public String createDepartment(String name, String location) {
         if (getDepartmentData(name) != null)
             return "This department already exists";
