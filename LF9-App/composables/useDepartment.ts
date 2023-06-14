@@ -43,8 +43,6 @@ export default () => {
           "Something went wrong with fetching data, try again later",
       });
     }
-
-    console.log(department);
   }
 
   return { getDataByDepartment, getDepartments, createDepartment };

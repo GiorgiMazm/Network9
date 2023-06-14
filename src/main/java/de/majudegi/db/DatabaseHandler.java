@@ -109,9 +109,9 @@ public class DatabaseHandler {
 		return result;
 	}
 
-    public void createDepartment(String name, String location) {
+    public String createDepartment(String name, String location) {
         if (getDepartmentData(name) != null)
-            return;
+            return  "This department already exists";
         try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement(("INSERT INTO department(name, location) VALUES(?, ?)"), Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, location);
@@ -121,8 +121,10 @@ public class DatabaseHandler {
             rs = preparedStatement.getGeneratedKeys();
             rs.next();
             LOGGER.info("Successfully created new department '" + name + "' in '" + location + "' with the id " + rs.getInt(1));
+            return "Successful";
         } catch (Exception e) {
             LOGGER.error("Couldn't create new department: " + e.getMessage());
+            return "An error occured";
         }
     }
 
