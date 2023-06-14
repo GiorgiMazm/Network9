@@ -53,12 +53,14 @@ public class Controller {
 
     @PostMapping(path = "/create/department")
     String createDepartment(@RequestBody Department newDepartment) {
-        return dbHandler.createDepartment(newDepartment.getName(), newDepartment.getLocation());
+        dbHandler.createDepartment(newDepartment.getName(), newDepartment.getLocation());
+        return "Successfully";
     }
 
     @PostMapping(path = "/create/device")
     String createDevice(@RequestBody Device newDevice) {
-        return dbHandler.createDevice(newDevice.getName(), newDevice.getDepartment_id(), newDevice.getIp());
+         dbHandler.createDevice(newDevice.getName(), newDevice.getDepartment_id(), newDevice.getIp());
+        return "Successfully";
     }
 
     @DeleteMapping(path = "/delete/department/{name}")
@@ -75,5 +77,9 @@ public class Controller {
             return "Successfully deleted device with the ip '" + ip + "'";
         else
             return "Failed to delete device with the ip '" + ip + "'";
+    }
+
+    public void setDbHandler(DatabaseHandler mockDbHandler) {
+        this.dbHandler = mockDbHandler;
     }
 }

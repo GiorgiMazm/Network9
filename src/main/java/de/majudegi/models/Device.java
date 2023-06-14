@@ -39,4 +39,8 @@ public class Device {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
+
+	public Device() {
+		// Default constructor
+	}
 }
