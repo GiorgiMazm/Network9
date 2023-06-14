@@ -16,7 +16,7 @@ const { createDepartment } = useDepartment();
 </script>
 
 <template>
-  <div class="bg-gray-700 h-screen text-gray-400">
+  <div class="bg-gray-700 text-gray-400 min-h-screen pb-9">
     <section>
       <div class="container mx-auto">
         <h1 class="text-5xl font-bold text-center pt-14">

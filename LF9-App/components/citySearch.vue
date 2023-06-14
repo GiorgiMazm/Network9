@@ -40,7 +40,9 @@ async function handleSearch() {
       <label class="mr-2">Choose a {{ props.type }}:</label>
       <select :name="props.type" v-model="inputValue">
         <option v-for="item in selectArray" :value="item.name ?? item">
-          {{ item.name ?? item }}
+          {{
+            item.name?.toString().toUpperCase() ?? item.toString().toUpperCase()
+          }}
         </option>
       </select>
 

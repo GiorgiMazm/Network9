@@ -34,5 +34,23 @@
         "ip": "2001:db:A:10::2"
       }
     ]
+  },
+  {
+    "name": "it",
+    "location": "hamburg",
+    "endDevices": [
+      {
+        "name": "PC1",
+        "ip": "2001:db:A:10::2"
+      },
+      {
+        "name": "PC2",
+        "ip": "2001:db:A:10::2"
+      },
+      {
+        "name": "PC3",
+        "ip": "2001:db:A:10::2"
+      }
+    ]
   }
 ]

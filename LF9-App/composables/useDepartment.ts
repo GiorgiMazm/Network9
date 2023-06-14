@@ -1,19 +1,17 @@
 import department from "../data/department.json";
 export default () => {
   async function getDataByDepartment(department: string) {
-    // const { error, data } = await useFetch(
-    //   `http://localhost:8080/department/${department}`
-    // );
-    // if (error.value) {
-    //   throw createError({
-    //     statusCode: 404,
-    //     statusMessage:
-    //       "Something went wrong with fetching data, try again later",
-    //   });
-    // }
-    //  return data.value;
-
-    return [department, "hoo"];
+    const { error, data } = await useFetch(
+      `http://localhost:8080/department/${department.toLowerCase()}`
+    );
+    if (error.value) {
+      throw createError({
+        statusCode: 404,
+        statusMessage:
+          "Something went wrong with fetching data, try again later",
+      });
+    }
+    return [data.value];
   }
 
   async function getDepartments() {

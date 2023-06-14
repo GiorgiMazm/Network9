@@ -22,8 +22,8 @@ public class DatabaseHandler {
 		Connection conn = null;
 	      try {
 	         conn = DriverManager
-	            .getConnection("jdbc:postgresql://localhost:5432/network9",
-	            "postgres", "admin123");
+	            .getConnection("jdbc:postgresql://localhost:5432/postgres",
+	            "postgres", "postgres");
 	      } catch (Exception e) {
 	         LOGGER.error("Couldn't connect to database: " + e.getMessage());
 	      }
