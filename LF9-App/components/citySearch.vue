@@ -9,6 +9,7 @@ const props = defineProps({
   },
 });
 
+const { toTitleCase } = useUtilities();
 const inputValue = ref("");
 let selectArray: string[];
 const cities = useCity();
@@ -41,7 +42,7 @@ async function handleSearch() {
       <select :name="props.type" v-model="inputValue">
         <option v-for="item in selectArray" :value="item.name ?? item">
           {{
-            item.name?.toString().toUpperCase() ?? item.toString().toUpperCase()
+            toTitleCase(item.name?.toString()) ?? toTitleCase(item.toString())
           }}
         </option>
       </select>

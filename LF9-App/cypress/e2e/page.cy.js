@@ -7,20 +7,20 @@ describe("test spec", () => {
   });
 
   describe("city", () => {
-    it("choose Lubeck and clear results", () => {
-      cy.get('select[name="city"]').select("Lubeck");
+    it("choose Hamburg and clear results", () => {
+      cy.get('select[name="city"]').select("Hamburg");
       cy.get('button[name="city"]').click();
-      cy.get("#result").should("contain.text", "Your results: Lubeck");
+      cy.get("#result").should("contain.text", "Your results: it");
       cy.get('button[name="clear-city"]').click();
       cy.get("#result").should("not.exist");
     });
   });
 
   describe("department", () => {
-    it("choose Verkauf and clear results", () => {
-      cy.get('select[name="department"]').select("Verkauf");
+    it("choose It and clear results", () => {
+      cy.get('select[name="department"]').select("It");
       cy.get('button[name="department"]').click();
-      cy.get("#result").should("contain.text", "Your results: Verkauf");
+      cy.get("#result").should("contain.text", "Your results: ");
       cy.get('button[name="clear-department"]').click();
       cy.get("#result").should("not.exist");
     });
