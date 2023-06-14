@@ -46,6 +46,23 @@ public class DatabaseHandler {
         return result;
     }
 
+    public List<String> getDepartmentsByCity(String location) {
+        List<String> result = new ArrayList<>();
+        try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM department WHERE location=?")) {
+            preparedStatement.setString(1, location);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                result.add(rs.getString("name"));
+            }
+
+            LOGGER.info("Departments in city:  " + result);
+        } catch (Exception e) {
+            LOGGER.error("(getDepartmentData) Couldn't get data from database: " + e.getMessage());
+        }
+        return result;
+    }
+
     List<Device> getDevices(int departmentID) {
         List<Device> result = new ArrayList<Device>();
         try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM device WHERE department_id=?");) {

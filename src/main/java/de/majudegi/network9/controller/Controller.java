@@ -45,6 +45,14 @@ public class Controller {
         return (result == null ? Collections.singletonList(defaultResponse) : result);
     }
 
+    @GetMapping(path = "/city/{city}")
+    public
+    List<String> showDepartmentsByCity(@PathVariable String city) {
+        String defaultResponse = "No departments available";
+        List<String> result = dbHandler.getDepartmentsByCity(city);
+        return (result == null ? Collections.singletonList(defaultResponse) : result);
+    }
+
     @PostMapping(path = "/create/department")
     String createDepartment(@RequestBody Department newDepartment) {
         return dbHandler.createDepartment(newDepartment.getName(), newDepartment.getLocation());
