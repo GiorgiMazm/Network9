@@ -24,10 +24,8 @@ public class Controller {
     }
 
     @GetMapping(path = "/department/{name}")
-    public String showDepartmentData(@PathVariable String name) {
-        String defaultResponse = "No department by the name of " + name + " has been found";
-        Department result = dbHandler.getDepartmentData(name);
-        return (result == null ? defaultResponse : result.toString());
+    public Department showDepartmentData(@PathVariable String name) {
+        return dbHandler.getDepartmentData(name);
     }
 
     @GetMapping(path = "/cities")
