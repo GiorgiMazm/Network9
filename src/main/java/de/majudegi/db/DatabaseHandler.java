@@ -128,10 +128,10 @@ public class DatabaseHandler {
         }
     }
 
-    public void createDevice(String name, int department_id, String ip) {
+    public String createDevice(String name, int department_id, String ip) {
         for (Device device : getDevices(department_id)) {
             if (device.getIp().equals(ip))
-                return;
+                return "Device already exists";
         }
         try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement(("INSERT INTO device(name, department_id, ip) VALUES(?, ?, ?)"), Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, name);
@@ -143,8 +143,10 @@ public class DatabaseHandler {
             rs = preparedStatement.getGeneratedKeys();
             rs.next();
             LOGGER.info("Successfully created new device '" + name + "': " + ip + " in department " + department_id + " with the id " + rs.getInt(1));
+            return "Successful";
         } catch (Exception e) {
             LOGGER.error("Couldn't create new device: " + e.getMessage());
+            return "An error occured";
         }
     }
 

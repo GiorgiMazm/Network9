@@ -107,8 +107,7 @@ public class ControllerTest {
         mockMvc.perform(post("/create/department")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"IT Department\",\"location\":\"Location\"}"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Successfully"));
+                .andExpect(status().isOk());
 
         verify(mockDbHandler, times(1)).createDepartment("IT Department", "Location");
     }
@@ -118,9 +117,7 @@ public class ControllerTest {
         mockMvc.perform(post("/create/device")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"Device\",\"department_id\":1,\"ip\":\"192.168.0.1\"}"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Successfully"));
-
+                .andExpect(status().isOk());
         verify(mockDbHandler, times(1)).createDevice("Device", 1, "192.168.0.1");
     }
 

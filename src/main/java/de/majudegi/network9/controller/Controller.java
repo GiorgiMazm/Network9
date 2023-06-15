@@ -55,14 +55,12 @@ public class Controller {
 
     @PostMapping(path = "/create/department")
     String createDepartment(@RequestBody Department newDepartment) {
-        dbHandler.createDepartment(newDepartment.getName(), newDepartment.getLocation());
-        return "Successfully";
+        return dbHandler.createDepartment(newDepartment.getName(), newDepartment.getLocation());
     }
 
     @PostMapping(path = "/create/device")
     String createDevice(@RequestBody Device newDevice) {
-        dbHandler.createDevice(newDevice.getName(), newDevice.getDepartment_id(), newDevice.getIp());
-        return "Successfully";
+        return dbHandler.createDevice(newDevice.getName(), newDevice.getDepartment_id(), newDevice.getIp());
     }
 
     @DeleteMapping(path = "/delete/department/{name}")
