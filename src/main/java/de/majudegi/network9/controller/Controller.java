@@ -17,8 +17,12 @@ public class Controller {
     @GetMapping(path = "/")
     public String showHome() {
         return "Welcome to our network management API! Feel free to try: <br><br>"
-                + "/department/{name} - To get infoormation about a department and it's devices, <br>"
-                + "/create/department - To create a new appartment by sending a POST request, <br>"
+                + "/department/{name} - To get information about a department and it's devices, <br>"
+                + "/departments - To get list of all departments <br>"
+                + "/city/{name} - To get department list based on city, <br>"
+                + "/cities  - To get list of all cities, where department exist, <br>"
+                + "/department/{} - To get information about a department and it's devices, <br>"
+                + "/create/department - To create a new apartment by sending a POST request, <br>"
                 + "/create/device - To create a new device by sending a POST request, <br>"
                 + "/delete/department/{name} - To delete a department via DELETE";
     }
@@ -36,16 +40,14 @@ public class Controller {
     }
 
     @GetMapping(path = "/departments")
-    public
-    List<String> showDepartments() {
+    public List<String> showDepartments() {
         String defaultResponse = "No departments available";
         List<String> result = dbHandler.getDepartments();
         return (result == null ? Collections.singletonList(defaultResponse) : result);
     }
 
     @GetMapping(path = "/city/{city}")
-    public
-    List<String> showDepartmentsByCity(@PathVariable String city) {
+    public List<String> showDepartmentsByCity(@PathVariable String city) {
         String defaultResponse = "No departments available";
         List<String> result = dbHandler.getDepartmentsByCity(city);
         return (result == null ? Collections.singletonList(defaultResponse) : result);
@@ -59,7 +61,7 @@ public class Controller {
 
     @PostMapping(path = "/create/device")
     String createDevice(@RequestBody Device newDevice) {
-         dbHandler.createDevice(newDevice.getName(), newDevice.getDepartment_id(), newDevice.getIp());
+        dbHandler.createDevice(newDevice.getName(), newDevice.getDepartment_id(), newDevice.getIp());
         return "Successfully";
     }
 

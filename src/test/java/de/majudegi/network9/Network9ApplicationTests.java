@@ -6,9 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Network9ApplicationTests {
 
-	@Test
-	void testCreateDepartment() {
-		
-	}
+    @Test
+    void testCreateDepartment() {
+
+    }
 
 }

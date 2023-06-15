@@ -30,9 +30,7 @@ describe("test spec", () => {
     it("can create new", () => {
       cy.get("button").contains("Create new department").click();
       cy.get("#newDepartment").should("exist");
-      cy.get('input[name="department"]').type(
-        "New department " + Math.random()
-      );
+      cy.get('input[name="department"]').type("Name" + Math.random());
       cy.get('input[name="city"]').type("Kiel!!");
       cy.get("button").contains("Create").click();
       cy.get("#newDepartment").should("not.exist");

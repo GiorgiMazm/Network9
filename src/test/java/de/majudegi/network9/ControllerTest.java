@@ -39,8 +39,12 @@ public class ControllerTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Welcome to our network management API! Feel free to try: <br><br>"
-                        + "/department/{name} - To get infoormation about a department and it's devices, <br>"
-                        + "/create/department - To create a new appartment by sending a POST request, <br>"
+                        + "/department/{name} - To get information about a department and it's devices, <br>"
+                        + "/departments - To get list of all departments <br>"
+                        + "/city/{name} - To get department list based on city, <br>"
+                        + "/cities  - To get list of all cities, where department exist, <br>"
+                        + "/department/{} - To get information about a department and it's devices, <br>"
+                        + "/create/department - To create a new apartment by sending a POST request, <br>"
                         + "/create/device - To create a new device by sending a POST request, <br>"
                         + "/delete/department/{name} - To delete a department via DELETE"));
     }

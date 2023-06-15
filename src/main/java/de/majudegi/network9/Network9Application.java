@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConf
 @EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 public class Network9Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Network9Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Network9Application.class, args);
+    }
 
 }
